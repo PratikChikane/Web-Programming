@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <div id="d1" style="background-color: rgb(241, 191, 183); text-align: center; padding: 20px;">
+
+        <label for="fName">Enter Firstname</label>
+        <input type="text" name="fName" id="fName"><br/><br/>
+
+        <label for="lName">Enter Lastname</label>
+        <input type="text" name="lName" id="lName"><br/><br/>
+
+        <label for="age">Enter Age</label>
+        <input type="number" name="age" id="age"><br/><br/>
+
+        <button onclick="call()">Add</button><br/><br/>
+
+        <p id="p1"></p>
+
+    </div>
+
+    <script>
+        // Declare the array outside the function to persist data between calls
+        const studData = [];
+
+        function call() {
+            const stud = {
+                firstName: "Pratibha",
+                lastName: "Chatre",
+                age: 26
+            };
+
+            const s = Object.create(stud);
+            s.firstName = document.getElementById("fName").value.trim();
+            s.lastName = document.getElementById("lName").value.trim();
+            s.age = document.getElementById("age").value.trim();
+
+            // Create username: first 2 chars of firstName + last 2 chars of lastName + age
+            let firstPart = s.firstName.substring(0, 2).toLowerCase();
+            let lastPart = s.lastName.slice(-2).toLowerCase();
+            let agePart = s.age;
+            s.username = firstPart + lastPart + agePart;
+
+            studData.push(s);
+
+            // Build the table
+            let table = "<table border='1' style='margin:auto;'>";
+            table += "<tr><th>First Name</th><th>Last Name</th><th>Age</th><th>Username</th></tr>";
+
+            for (let i = 0; i < studData.length; i++) {
+                table += "<tr>";
+                table += "<td>" + studData[i].firstName + "</td>";
+                table += "<td>" + studData[i].lastName + "</td>";
+                table += "<td>" + studData[i].age + "</td>";
+                table += "<td>" + studData[i].username + "</td>";
+                table += "</tr>";
+            }
+
+            table += "</table>";
+
+            document.getElementById("p1").innerHTML = table;
+        }
+    </script>
+
+</body>
+
+</html>

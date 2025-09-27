@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Manipulation</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .controls {
+            margin-bottom: 20px;
+        }
+        .controls input, .controls button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+        }
+        .output-container {
+            width: 80%;
+            border: 1px solid #ccc;
+            padding: 10px;
+            min-height: 100px;
+        }
+        #output {
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Array Manipulation with JavaScript</h1>
+
+    <div class="controls">
+        <input type="text" id="inputField" placeholder="Enter a number">
+        <button onclick="addAtEnd()">Add at End</button>
+        <button onclick="addAtStart()">Add at Start</button>
+        <button onclick="deleteFromEnd()">Delete from End</button>
+        <button onclick="deleteFromStart()">Delete from Start</button>
+        <button onclick="displayOdd()">Display Odd Numbers</button>
+        <button onclick="displayEven()">Display Even Numbers</button>
+    </div>
+
+    <h3>Current Array:</h3>
+    <div class="output-container">
+        <pre id="output">[]</pre>
+    </div>
+
+    <script>
+        let numberArray = [];
+        const inputElement = document.getElementById('inputField');
+        const outputElement = document.getElementById('output');
+
+        function updateDisplay(arr) {
+            outputElement.textContent = `[${arr.join(', ')}]`;
+        }
+
+        function getInputValue() {
+            const value = parseInt(inputElement.value);
+            inputElement.value = ''; // Clear the input field
+            return value;
+        }
+        
+        function addAtEnd() {
+            const num = getInputValue();
+            if (!isNaN(num)) {
+                numberArray.push(num); // Use push() to add to the end
+                updateDisplay(numberArray);
+            }
+        }
+
+        function addAtStart() {
+            const num = getInputValue();
+            if (!isNaN(num)) {
+                numberArray.unshift(num); // Use unshift() to add to the beginning
+                updateDisplay(numberArray);
+            }
+        }
+
+        function deleteFromEnd() {
+            numberArray.pop(); // Use pop() to remove from the end
+            updateDisplay(numberArray);
+        }
+
+        function deleteFromStart() {
+            numberArray.shift(); // Use shift() to remove from the beginning
+            updateDisplay(numberArray);
+        }
+
+        function displayOdd() {
+            const oddNumbers = numberArray.filter(num => num % 2 !== 0); // Use filter() for odd numbers
+            updateDisplay(oddNumbers);
+        }
+
+        function displayEven() {
+            const evenNumbers = numberArray.filter(num => num % 2 === 0); // Use filter() for even numbers
+            updateDisplay(evenNumbers);
+        }
+    </script>
+
+</body>
+</html>

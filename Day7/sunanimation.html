@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Bouncing Ball with Canvas Mountains</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #87ceeb;
+        }
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #ball {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: rgb(248, 165, 57);
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="backgroundCanvas"></canvas>
+    <div id="ball"></div>
+
+    <script>
+        const canvas = document.getElementById("backgroundCanvas");
+        const ctx = canvas.getContext("2d");
+        const ball = document.getElementById("ball");
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            drawMountains();
+        }
+
+        function drawMountains() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = "#2e8b57"; // mountain color
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height);
+            ctx.lineTo(canvas.width * 0.2, canvas.height * 0.6);
+            ctx.lineTo(canvas.width * 0.4, canvas.height * 0.8);
+            ctx.lineTo(canvas.width * 0.6, canvas.height * 0.4);
+            ctx.lineTo(canvas.width * 0.8, canvas.height * 0.7);
+            ctx.lineTo(canvas.width, canvas.height * 0.3);
+            ctx.lineTo(canvas.width, canvas.height);
+            ctx.lineTo(0, canvas.height);
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        window.addEventListener("resize", resizeCanvas);
+        resizeCanvas();
+
+        let x = 100;
+        let y = 100;
+        let dx = 4;
+        let dy = 4;
+
+        function moveBall() {
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+
+            x += dx;
+            y += dy;
+
+            if (x + ball.offsetWidth > windowWidth || x < 0) {
+                dx = -dx;
+            }
+            if (y + ball.offsetHeight > windowHeight || y < 0) {
+                dy = -dy;
+            }
+
+            ball.style.left = x + "px";
+            ball.style.top = y + "px";
+
+            requestAnimationFrame(moveBall);
+        }
+
+        moveBall();
+    </script>
+
+</body>
+</html>

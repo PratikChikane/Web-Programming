@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Enter name <input type="text"  required id="t1" minlength="3" maxlength="6">
+    <button onclick="validate()">Display</button>
+    <p id="p1">Data</p>
+
+
+
+    <script>
+        // function display(){
+        //     let d = document.getElementById("t1").value;
+        //      if(d.trim() != ""){
+        //         document.getElementById("p1").innerText = document.getElementById("t1").value;
+        //      }else{
+        //         document.getElementById("p1").innerText = "please enter data";
+        //      }
+        // }
+
+        function validate(){
+            let ele = document.getElementById("t1");
+            console.log(ele.checkValidity())
+            if(ele.checkValidity()){
+                document.getElementById("p1").innerHTML = document.getElementById("t1").value;
+
+            }else{
+                document.getElementById("p1").innerText = ele.validationMessage
+            }
+        }
+        
+    </script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validation Example</title>
+</head>
+<body>
+  <h3>Enter your name</h3>
+  <input type="text" id="t1" required minlength="3" maxlength="8" />
+  <button onclick="validate()">Display</button>
+  <p id="p1">Data</p>
+
+  <script>
+    function validate(){
+      let ele = document.getElementById("t1");
+
+      if(ele.checkValidity()){   
+        document.getElementById("p1").innerText = "Entered Name: " + ele.value;
+      } else {                
+        document.getElementById("p1").innerText = ele.validationMessage;
+      }
+    }
+  </script>
+</body>
+</html> -->

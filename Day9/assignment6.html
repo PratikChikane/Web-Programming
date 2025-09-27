@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("h1, h2, p").addClass("Green");
+                $("div").addClass("important");
+                $("#h6").empty();
+                $("#h4").toggleClass("main");
+            });
+        });
+    </script>
+    <style>
+        .important{
+            font-weight: bold;
+            font-size: xx-large;
+        }
+        .green{
+            color: red;
+        }
+        .main{
+            font-size: 120%;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Heading 1</h1>
+<h2>Heading 2</h2>
+
+<p>This is a paragraph.</p>
+<p>This is another paragraph.</p>
+
+<div>This is some important text!</div><br>
+   
+<h6 id="h6">hjhsfdkfhskdfdshfks</h6>
+<h4>
+    This is a paragraph.
+This is another paragraph.
+Note: Click the button more than once to see the toggle effect.
+</h4>
+
+    <button>Add Classes to the elements</button>
+</body>
+</html>

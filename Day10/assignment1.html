@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="result"></div>
+    <script>
+        $(document).ready(function(){
+            $.get("https://jsonplaceholder.typicode.com/posts/1", function(data){
+                $("#result").html("Title: "+data.title);
+                console.log(data.title);
+        //         console.log(data); // full JSON object in console
+        // $("#output").html("ID: " + data.id + "<br>Title: " + data.title + "<br>Body: " + data.body);
+                
+            });
+        });
+    </script>
+</body>
+</html>

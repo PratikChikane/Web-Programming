@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+    Enter a Number:
+    <input type="text" name="value" id="num"></input>
+   <button id="btn">submit</button>
+   <p id="result"></p>
+    <script>
+        $(document).ready(function(){
+           $("#btn").click(function(){
+            var number = $("#num").val();
+            var output = 1;
+
+            if(number<=0){
+                output = 1;
+
+            }else{
+                for( let i=1;i<=number;i++){
+                    output = output *i;
+                }
+            }
+            $("#result").html(output);
+            console.log(output);
+        
+           });
+        });
+    </script>
+</body>
+</html>

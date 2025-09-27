@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>The Window Object</h1>
+    <h2>The SetInerval Method</h2>
+    <p id = "demo"></p>
+    <p id = "demo2"></p>
+    <button onclick="stopRepetition()">Stop</button>
+    <script>
+        const myInterval = document.getElementById("demo");
+
+        let intervalId = setInterval(function(){myInterval.innerHTML+="Hi, there!.."}, 1000)
+
+        function stopRepetition(){
+            clearInterval(intervalId);
+        }
+        const myTimeout = setTimeout(Greeting, 2000);
+        function Greeting(){
+            document.getElementById("demo2").innerHTML = "Hey, There!.."
+        }
+    </script>
+</body>
+</html>

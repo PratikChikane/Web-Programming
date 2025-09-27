@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Click Counter</title>
+    <style>
+        .readonly {
+            background-color: #ccc;
+            color: #666;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="clickButton" onclick="countClicks()">Click Me!</button>
+    <p id="countDisplay">You have clicked 0 times.</p>
+
+    <script>
+        let count = 0;
+
+        function countClicks() {
+            count++;
+            document.getElementById('countDisplay').textContent = `You have clicked ${count} times.`;
+
+            if (count >= 10) {
+                const button = document.getElementById('clickButton');
+                button.disabled = true;
+                button.classList.add('readonly');
+            }
+        }
+    </script>
+
+</body>
+</html>

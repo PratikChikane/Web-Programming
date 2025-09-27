@@ -1,0 +1,72 @@
+<!-- // create html page -  with 
+// 	1 textfield and multiple buttons 
+	
+// button captions are - 1)Add at End 
+// 		 2) Add at Start
+// 		3) delete from end 
+// 		4) delete from start
+// 		5) display odd numbers 
+// 		6) display even numbers
+// hint -  use Array predined methods -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 3</title>
+</head>
+<body>
+    
+    <p id="p1"></p>
+        <input type="text" name="" id="n">
+        <button type="button" onclick="add()">Add at End</button>
+        <button type="button" onclick="addAtStart()"> add at Start</button>
+        <button type="button" onclick="deleteFromEnd()">delete from end</button>
+        <button type="button" onclick="deleteFromStart()">delete from start</button>
+        <button type="button" onclick="displayOdd()">display odd numbers</button>
+         <button type="button" onclick="displayEven()">display even Numbers</button>
+    
+</body>
+         <script>
+            const a =[];
+
+            function add(){
+                let d = document.getElementById("n").value;
+                a.push(d);
+                console.log(a);
+                Show();
+            }
+             function addAtStart(){
+                let d = document.getElementById("n").value;
+                a.unshift(d);
+                console.log(a);
+                Show();
+            }
+            function deleteFromEnd(){
+                let d = document.getElementById("n").value;
+                a.pop(d);
+                console.log(a);
+                Show();
+            }
+            function deleteFromStart(){
+                let d = document.getElementById("n").value;
+                a.shift(d);
+                console.log(a);
+                Show();
+            }
+            function displayOdd() {
+            let oddNumbers = a.filter(item => Number(item) % 2 !== 0);
+            document.getElementById("p1").innerHTML = oddNumbers;
+            }
+            function displayEven() {
+            let evenNumbers = a.filter(item => Number(item) % 2 === 0);
+            document.getElementById("p1").innerHTML = evenNumbers;
+            }
+
+           function Show(){
+            document.getElementById("p1").innerHTML = a;
+           }
+
+         </script>
+
+</html>

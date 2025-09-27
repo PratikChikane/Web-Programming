@@ -1,0 +1,52 @@
+<html>
+
+<body>
+    <div id="d1" style="background-color: rgb(241, 191, 183);text-align: center;">
+
+        <label for="fName" >Enter Firstname</label>
+        <input type="text" name="fName" id ="fName"><br/>
+
+        <label for="lName" >Enter Lastname</label>
+        <input type="text" name="lName" id ="lName"><br/>
+
+        <label for="age" >Enter Age</label>
+        <input type="number"  name="age" id ="age"><br/>
+
+        <button onclick="call()">Add</button>
+        <p id="p1"></p>
+    </div>
+</body>
+
+<script>
+function call(){
+const stud = {
+  firstName: "Pratibha",
+  lastName: "Chatre",
+  age: 26
+};
+
+const s = Object.create(stud);
+s.firstName = document.getElementById("fName").value;
+s.lastName = document.getElementById("lName").value;
+s.age = document.getElementById("age").value;
+console.log(s);
+const studData = new Array();
+
+studData.push(s);
+console.log(studData);
+
+let table = "<table border='1'><tr><th>First Name</th><th>Last Name</th><th>Age</th></tr>";
+
+for (let i = 0; i < studData.length; i++) {
+    table += "<tr>";
+    table += "<td>" + studData[i].firstName + "</td>";
+    table += "<td>" + studData[i].lastName + "</td>";
+    table += "<td>" + studData[i].age + "</td>";
+    table += "</tr>";
+}
+
+table += "</table>";
+document.getElementById("p1").innerHTML = table;
+}
+</script>
+</html>

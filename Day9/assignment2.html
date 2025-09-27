@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>The XML http Object</h2>
+    <div id="demo">
+        <p>Change the text</p>
+        <button type="button" onclick="loadDoc()">
+            Read Text
+        </button>
+    </div>
+    <script>
+        function loadDoc(){
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function(){
+        const getData = JSON.parse(this.responseText);
+        console.log(getData);
+        
+
+        // show formatted JSON in HTML
+        document.getElementById("demo").innerHTML = 
+            `<pre>${JSON.stringify(getData, null, 2)}</pre>`;
+    }
+    xhttp.open("GET", "https://jsonplaceholder.typicode.com/posts");
+    xhttp.send();
+            
+            
+        }
+    </script>
+</body>
+</html>
